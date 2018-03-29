@@ -3,9 +3,19 @@
 <head>
     <title>木叶子的个人简历</title>
     <link rel="stylesheet" href="./a.css">
+    <script type="text/javascript" src="//at.alicdn.com/t/font_609752_i7zf51q6qi0vbo6r.js"></script>
+    <style type="text/css">
+    .icon {
+       width: 1em; height: 1em;
+       vertical-align: -0.15em;
+       fill: currentColor;
+       overflow: hidden;
+    }
+</style>
 </head>
 <body>
-   <div class="topNavBar clearfix">
+   <div class="topNavBar">
+    <div class="topNavBarInner clearfix">
        <a href="javascript:;" alt="logo" class="logo" style="float:left;">
            <span class="rs">RS</span><span class="card">card</span>
        </a>
@@ -20,17 +30,19 @@
                <li><a href="#">其他</a></li>
            </ul>  
        </nav>
+    </div>
    </div> 
-   <div class="banner" style="background-image: url(#)"></div>
+   <div class="banner">
+     <div class="mask"></div>
+   </div>
    <main>
-       <div class="card">
-           <div class="pictureAndText">
+       <div class="userCard">
+           <div class="pictureAndText clearfix">
                <div class="picture">
-                   <img src="" alt="头像">
+                   <img src="./img/head-portrait.jpeg" width=299 height=347 alt="头像">
                </div>
                <div class="text">
-                 <div class="profile">
-                     <span class="welcome">Hello</span>
+                     <span class="welcome">Hello<span class="triangle"></span></span>
                      <h1>张远敬</h1>
                      <p>前端开发工程师</p>
                      <hr>
@@ -44,18 +56,25 @@
                          <dt>手机</dt>
                          <dd>18352536602</dd>
                      </dl>
-                 </div> 
                </div>
            </div>     
-             <footer class="media">
-           <a href="#"><img src="" alt=""></a>
-           <a href="#"><img src="" alt=""></a>
-           <a href="#"><img src="" alt=""></a>
-           <a href="#"><img src="" alt=""></a>
-           <a href="#"><img src="" alt=""></a>
-           <a href="#"><img src="" alt=""></a>
-           <a href="#"><img src="" alt=""></a>  
-             </footer>
+          <footer class="media">
+           <a href="#">
+             <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-gongzhonghao"></use>
+             </svg>
+           </a>
+           <a href="#">
+             <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-twitter"></use>
+             </svg>
+           </a>
+           <a href="#">
+             <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-github4"></use>
+             </svg>
+           </a> 
+          </footer>
        </div>
        <a href="#" class="button">下载PDF简历</a>
        <p>
