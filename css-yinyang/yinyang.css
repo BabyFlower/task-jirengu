@@ -1,0 +1,41 @@
+#yinyang{
+	height: 400px;
+	width: 200px;
+	background-color: black;
+	border-width: 2px 202px 2px 2px;
+	border-style: solid;
+	border-color: white;
+	border-radius: 50%;
+	position: relative;
+}
+#yinyang::before{
+	content: "";
+	position: absolute;
+	top: 0%;
+	left:50%;
+	height: 42px;
+	width: 42px;
+	background-color: white;
+	border-width: 79px;
+	border-style: solid;
+	border-color: black;
+	border-radius: 50%;	
+
+}
+
+#yinyang::after{
+	content: "";
+	position: absolute;
+	top: 50%;
+	left:50%;
+	height: 42px;
+	width: 42px;
+	background-color: black;
+	border-width: 79px;
+	border-style: solid;
+	border-color: white;
+	border-radius: 50%;	
+}
+body{
+	background-color: #fbe41cba;
+}
