@@ -61,3 +61,11 @@ html {
 	font-size: 10px;
 	height:100vh;
 }
+
+.icon{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 20px;
+}
+
