@@ -10,18 +10,18 @@ kbd {
 	margin-left: 20px;
 	margin-bottom: 20px;
 	display: inline-block;
-	/*transition: all .07s ease;*/
+	transition: all .07s ease;
 }
 
 kbd:hover .button{
 	display: block;
 }
 
-/*.playing{
+.playing{
 	transform: scale(1.1);
 	border-color: #ffc600;
 	box-shadow: 0 0 1rem #ffc600;
-}*/
+}
 
 .sound{
 	letter-spacing: .1rem;

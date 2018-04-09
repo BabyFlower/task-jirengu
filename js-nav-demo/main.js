@@ -31,26 +31,28 @@ function init(){
 			}
 }
 
+
+
 function listenEvents(hash){
 	document.onkeypress = function(keyDown){
 		var key = keyDown['key'];
-	//	var whichButton = document.querySelector(`button[id="${key}"]`);
-	//	var whichKey = whichButton.parentNode;
-	//	whichKey.classList.add('playing');
-		// var hashInlocalStorage = JSON.parse(localStorage.getItem('websites') || 'null');
-		// if (hashInlocalStorage) {
-		// 	hash = hashInlocalStorage;
-		// }
+		var whichButton = document.querySelector(`button[id="${key}"]`);
+		var whichKey = whichButton.parentNode;
+		whichKey.classList.add('playing');
+	
 		var website = hash[key];
 
 		if (website!= undefined) {
-			window.open('http://'+website,'_blank');
+			// window.open('http://'+website,'_blank');
+			setTimeout(`window.open('http://'+'${website}','_blank')`,140);
 		}
 		else
 		{
 			alert('It is empty, please edit');
 		}
-	}	
+	}
+	const kbds = Array.from(document.querySelectorAll('.sound'));
+ 	kbds.forEach(kbd => kbd.addEventListener('transitionend', removeTransition));	
 }
 
 function generateKeyboard(keyboard,hash){
@@ -70,20 +72,23 @@ function generateKeyboard(keyboard,hash){
 			kbd.appendChild(img);
 			kbd.appendChild(span);
 			div.appendChild(kbd);	
-
-
 		}
 	}
 
-	console.log("keyboard");
-
 }
+
+
+function removeTransition(e) {
+
+    if (e.propertyName !== 'transform') return;
+    e.target.classList.remove('playing');
+  }
+
 
 function createImg(content){
 	var img = document.createElement('img');
 	if (hash[content]!= undefined) {
 	img.src = 'http://'+hash[content]+'/favicon.ico';
-	console.log(hash[content]);
 	}
 	img.className = 'icon';
 	return img;
