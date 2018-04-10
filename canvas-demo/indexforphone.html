@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>myCanvas</title>
+	<link rel="stylesheet" type="text/css" href="./style.css">
+	<style>
+	.icon {
+       width: 2.0em; height: 2.0em;
+   }
+   .icon-clear{
+   	   widows: 2.0em; height: 2.0em;
+   	   vertical-align: top;
+       fill: currentColor;
+       overflow: hidden;
+   }
+   .colors{
+   	margin-right: -20px;
+   }
+   #download{
+   	padding-top: 100px;
+   }
+	</style>
+</head>
+<body class="clearfix">
+	<canvas id='canvas' height=300 width=300></canvas>
+	<nav>
+		<ol class="brush">
+			<li >
+				<svg id="smallpen" class="icon active" aria-hidden="true">
+				    <use xlink:href="#icon-smallPen"></use>
+				</svg>
+			</li>
+			<li>
+				<svg id="pen" class="icon" aria-hidden="true">
+				    <use xlink:href="#icon-pen1"></use>
+				</svg>
+			</li>
+			<li>
+				<svg id="bigpen" class="icon" aria-hidden="true">
+				    <use xlink:href="#icon-pen"></use>
+				</svg>
+			</li>
+			<li>
+				<svg id="eraser" class="icon" aria-hidden="true">
+				    <use xlink:href="#icon-eraser"></use>
+				</svg>
+			</li>
+			<li style="margin-left: -20px">
+				<svg id="clear" class="icon-clear" aria-hidden="true">
+				    <use xlink:href="#icon-custom-clear"></use>
+				</svg>
+			</li>
+			<li>
+				<svg id="download" class="icon-clear" aria-hidden="true" style="width: 2.5em; height: 2.5em;">
+		    		<use xlink:href="#icon-download"></use>
+				</svg>
+			</li>
+		</ol>	
+	</nav>
+	<div id="colors" class="colors">
+		<ol>
+			<li class="color active" id="black" style="border-color: black"></li>
+			<li class="color" id="red" style="border-color: #ff377b"></li>
+			<li class="color" id="yellow" style="border-color: #ffff5b"></li>
+			<li class="color" id="blue" style="border-color: #5b5be0"></li>
+		</ol>
+	</div>
+	<script type="text/javascript" src="./mainforphone.js"></script>
+	<script type="text/javascript" src="//at.alicdn.com/t/font_623064_4pidft0oy99t3xr.js"></script>
+</body>
+</html>
