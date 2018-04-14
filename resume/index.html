@@ -18,7 +18,7 @@
      <div class="loading"></div>
    </div>
    <div class="topNavBar">
-    <div class="topNavBarInner clearfix">
+    <div id="topNavBar" class="topNavBarInner clearfix">
        <a href="javascript:;" alt="logo" class="logo" style="float:left;">
            <span class="rs">RS</span><span class="card">card</span>
        </a>
@@ -184,6 +184,14 @@
      setTimeout(function(){
         loadMask.classList.remove('active');
      },1000);  //when the web have already loaded, remove the loadMask
+
+     window.onscroll = function(x){
+        console.log(x);
+        if (window.scrollY>0) {topNavBar.classList.add('active');
+      }else{
+        topNavBar.classList.remove('active');
+      }
+     }
    </script>
 </body>
 </html>
