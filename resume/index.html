@@ -24,9 +24,15 @@
        </a>
        <nav style="float:right;">
            <ul class="clearfix">
-               <li><a href="#">关于</a></li>
-               <li><a href="#">技能</a></li>
-               <li><a href="#">作品</a></li>
+               <li> <a href="#userCard">关于</a> </li>
+               <li><a href="#skills">技能</a></li>
+               <li><a href="#portfolio">作品</a>
+                  <ul class="secondMenu">
+                      <li class="leave"><a href="#">work1</a></li>
+                      <li class="leave"><a href="#">work2</a></li>
+                      <li class="leave"><a href="#">work3</a></li>
+                  </ul>
+               </li>
                <li><a href="#">博客</a></li>
                <li><a href="#">日历</a></li>
                <li><a href="#">联系方式</a></li>
@@ -44,7 +50,7 @@
      <div class="mask"></div>
    </div>
    <main>
-       <div class="userCard">
+       <div id="userCard" class="userCard">
            <div class="pictureAndText clearfix">
                <div class="picture">
                    <img src="./img/head-portrait.jpeg" width=299 height=347 alt="头像">
@@ -92,7 +98,7 @@
            技能：前端开发，Node.js开发，vue和React框架
        </p>
    </main>
-   <section class="skills">
+   <section id="skills" class="skills">
        <h2>技能</h2>
        <ol class="clearfix">
           <li>
@@ -145,7 +151,7 @@
           </li>
        </ol>
    </section>
-   <section class="portfolio">
+   <section id="portfolio" class="portfolio">
        <h2>作品集</h2>
        <nav>
            <ol class="clearfix">
@@ -186,12 +192,33 @@
      },1000);  //when the web have already loaded, remove the loadMask
 
      window.onscroll = function(x){
-        console.log(x);
         if (window.scrollY>0) {topNavBar.classList.add('active');
       }else{
         topNavBar.classList.remove('active');
       }
      }
+
+     /*a frag hover show the bottom line*/
+     var lis = Array.from(topNavBar.querySelectorAll('li'));
+     lis.forEach(li => li.onmouseenter = function(event){
+          var target = event.target;
+          target.classList.remove('leave');
+          target.classList.add('active');
+     })
+     lis.forEach(li => li.onmouseleave = function(event){
+         var target = event.target;
+          target.classList.remove('active');
+          target.classList.add('leave');
+     })
+
+     /*show second menu*/
+     var secondMenus = Array.from(topNavBar.querySelectorAll('.secondMenu'));
+     secondMenus.forEach(secondMenu => secondMenu.addEventListener('animationend',function(e){
+      if (e.animationName!=='menuLeave') {return;}
+      e.path[1].classList.remove('leave');
+     })) //when display is block, the animation can be effort, so using js to let display be none when animation is end
+
+
    </script>
 </body>
 </html>

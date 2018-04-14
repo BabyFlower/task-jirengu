@@ -37,17 +37,82 @@ a {color: inherit; text-decoration: none; /*消除下划线*/ }
 }
 
 
-.topNavBarInner {color: #9e9a9a; padding: 20px 16px 20px 16px; transition: all .3s;
-  /*background:linear-gradient(to bottom, rgba(230, 230, 230, 0.74) 16%, rgb(254, 254, 254) 50%, rgba(255, 255, 255, 0.99) 55%, rgba(237, 237, 237, 0.13) 96%, rgba(237, 237, 237, 0) 100%);*/
-}
-
+.topNavBarInner {color: #9e9a9a; padding: 20px 16px 20px 16px; transition: all .3s; }
 .topNavBarInner.active{color: #3d4451; background: #f3f0f0e6; padding: 10px 16px; box-shadow: 0px 5px 18px 5px rgba(0,0,0,0.54); }
  .topNavBar nav {padding-top: 7px; }
 .topNavBar  nav > ul{list-style: none; /*消除列表样式*/ margin: 0; padding: 0; }
- .topNavBar nav > ul > li{float: left; margin: 0 17px; }
- .topNavBar  nav > ul > li > a {font-size: 12px; font-weight: bold; border-top: 3px solid transparent; /*加上透明的外边框，用于对齐*/
-  border-bottom: 3px solid transparent; padding-top: 5px; padding-bottom: 5px; display: block;  /*当li的高度与a的高度不同时，设置a标签的样式为block即可与li同高*/ }
- .topNavBar nav > ul > li > a:hover {border-bottom: 3px solid #e06567; }
+ .topNavBar nav > ul > li{float: left; margin: 0 17px; position: relative;}
+ .topNavBar nav > ul > li .secondMenu{position: absolute;top: 100%;right: 0; background: white; 
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  padding:5px 10px;
+  display: none;
+}
+
+.topNavBar nav > ul > li.active .secondMenu{
+  display: block;
+  animation: menuSlice .3s;
+}
+
+.topNavBar nav > ul > li.leave .secondMenu{
+  display: block;
+  margin-right: 100%;
+  opacity: 0;
+  animation: menuLeave .3s;
+
+}
+@keyframes menuSlice{
+    0%{
+    margin-right: 100%;
+  }
+  100%{
+    margin-right: 0%;
+  }
+}
+@keyframes menuLeave{
+    0%{
+    display: block;
+    opacity: 1;
+    margin-right: 0%;
+  }
+  100%{
+    display: none;
+      margin-right: 100%;
+      opacity: 0;
+  }
+}
+
+ .topNavBar  nav > ul > li  a {font-size: 12px; font-weight: bold; border-top: 3px solid transparent; /*加上透明的外边框，用于对齐*/
+  border-bottom: 3px solid transparent; padding-top: 5px; padding-bottom: 5px; 
+  display: block;  /*当li的高度与a的高度不同时，设置a标签的样式为block即可与li同高*/ 
+  position: relative;
+}
+ .topNavBar nav > ul  li.active  a::after,
+.topNavBar nav > ul  li.leave  a::after
+  {
+    content: '';
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: block;
+    background: #e06567;
+    animation:aHover .3s;
+   }
+  .topNavBar nav > ul  li.leave  a::after{
+    width: 0%;
+    animation: aLeave .3s;
+  }
+
+   @keyframes aHover{
+    from{width: 0%;}
+    to{width: 100%;}
+   }
+
+   @keyframes aLeave{
+    from{width: 100%;}
+    to{width: 0%;}
+   }
  .topNavBar .logo {font-size: 24px; font-family: 'Arial Black'; padding-top: 3px; padding-bottom: 4px; }
 .topNavBar .logo .rs {margin-right: 4px; color: #e6686a; }
 .topNavBar .logo .card {color: #9a9da2; }
