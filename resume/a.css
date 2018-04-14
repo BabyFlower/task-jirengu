@@ -7,6 +7,7 @@ body {
   background: #efefef;
   margin: 0;
 }
+
 *{
   margin: 0;
   padding: 0;
@@ -15,6 +16,65 @@ a {
   color: inherit;
   text-decoration: none; /*消除下划线*/
 }
+
+
+.loadMask{
+  display: none;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: #888;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadMask.active{
+  display: flex;
+}
+.loading{
+  height: 200px;
+  width: 200px;  /*To make ::before and ::after center*/
+  position: relative;
+}
+
+.loading::before,.loading::after{
+  content:'';
+  position: absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  margin:auto;   /*these code set center*/
+  height: 0px;
+  width: 0px; /*without color while cover the father range*/
+  background: black;
+  border-radius: 50%;
+  animation:load 1s linear infinite ;
+}
+
+.loading::after{
+  animation-delay: .5s;
+}
+
+@keyframes load{
+  0%{
+    width:0px;height:0px;
+    opacity:1;
+  }
+  100%{
+    width:100px;height:100px;
+    opacity:0;
+  }
+}
+
+
+
+
+
+
 .topNavBar{
   position: fixed;
   top: 0;
@@ -304,7 +364,7 @@ section.portfolio > nav {
 section.portfolio > nav > ol > li {
   float: left;
   margin-left: 40px;
-
+  cursor: pointer; /*set mouse icon to hand*/
 }
 
 

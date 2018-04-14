@@ -14,6 +14,9 @@
 </style>
 </head>
 <body>
+   <div id="loadMask" class="loadMask active">
+     <div class="loading"></div>
+   </div>
    <div class="topNavBar">
     <div class="topNavBarInner clearfix">
        <a href="javascript:;" alt="logo" class="logo" style="float:left;">
@@ -32,6 +35,11 @@
        </nav>
     </div>
    </div> 
+
+   <script type="text/javascript">
+         
+   </script> 
+
    <div class="banner">
      <div class="mask"></div>
    </div>
@@ -172,5 +180,10 @@
           </div>
    </div>
    </section>
+   <script type="text/javascript">
+     setTimeout(function(){
+        loadMask.classList.remove('active');
+     },1000);  //when the web have already loaded, remove the loadMask
+   </script>
 </body>
 </html>
