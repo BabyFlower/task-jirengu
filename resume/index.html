@@ -24,7 +24,7 @@
        </a>
        <nav style="float:right;">
            <ul class="clearfix">
-               <li> <a href="#userCard">关于</a> </li>
+               <li><a href="#userCard">关于</a> </li>
                <li><a href="#skills">技能</a></li>
                <li><a href="#portfolio">作品</a>
                   <ul class="secondMenu">
@@ -33,10 +33,10 @@
                       <li class="leave"><a href="#">work3</a></li>
                   </ul>
                </li>
-               <li><a href="#">博客</a></li>
-               <li><a href="#">日历</a></li>
-               <li><a href="#">联系方式</a></li>
-               <li><a href="#">其他</a></li>
+               <li><a href="#topNavBar">博客</a></li>
+               <li><a href="#topNavBar">日历</a></li>
+               <li><a href="#topNavBar">联系方式</a></li>
+               <li><a href="#topNavBar">其他</a></li>
            </ul>  
        </nav>
     </div>
@@ -186,6 +186,7 @@
           </div>
    </div>
    </section>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.1.1/Tween.min.js"></script>
    <script type="text/javascript">
      setTimeout(function(){
         loadMask.classList.remove('active');
@@ -218,7 +219,37 @@
       e.path[1].classList.remove('leave');
      })) //when display is block, the animation can be effort, so using js to let display be none when animation is end
 
+     /*a tags jump*/
+    function animate(time) {
+      requestAnimationFrame(animate);
+      TWEEN.update(time);
+    }
 
+    requestAnimationFrame(animate);
+
+    var aTags = document.querySelectorAll('#topNavBar > nav > ul > li >a');
+    aTags.forEach(aTag => aTag.onclick = function(e){
+        e.preventDefault();
+        var whichPart = document.querySelector(e.currentTarget.getAttribute('href'));
+        var targetY = whichPart.offsetTop - 80;
+        var currentTargetY = window.scrollY;
+        var t = Math.abs((targetY - currentTargetY)*3);
+        if(t>500){ t = 500 }
+        var coords = {y : currentTargetY};
+
+         var tween = new TWEEN.Tween(coords) // 起始位置
+         .to({ y: targetY}, t) // 结束位置 和 时间
+         .easing(TWEEN.Easing.Cubic.InOut) // 缓动类型
+         .onUpdate(function() {
+         // coords.y 已经变了
+         window.scrollTo(0,coords.y) // 如何更新界面
+        })
+        .start(); // 开始缓动
+     
+     })
+
+
+    
    </script>
 </body>
 </html>
