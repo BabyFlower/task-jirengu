@@ -49,8 +49,8 @@
    <div class="banner">
      <div class="mask"></div>
    </div>
-   <main>
-       <div id="userCard" class="userCard">
+   <main id="userCard" >
+       <div class="userCard">
            <div class="pictureAndText clearfix">
                <div class="picture">
                    <img src="./img/head-portrait.jpeg" width=299 height=347 alt="头像">
@@ -192,12 +192,6 @@
         loadMask.classList.remove('active');
      },1000);  //when the web have already loaded, remove the loadMask
 
-     window.onscroll = function(x){
-        if (window.scrollY>0) {topNavBar.classList.add('active');
-      }else{
-        topNavBar.classList.remove('active');
-      }
-     }
 
      /*a frag hover show the bottom line*/
      var lis = Array.from(topNavBar.querySelectorAll('li'));
@@ -210,7 +204,9 @@
          var target = event.target;
           target.classList.remove('active');
           target.classList.add('leave');
+
      })
+
 
      /*show second menu*/
      var secondMenus = Array.from(topNavBar.querySelectorAll('.secondMenu'));
@@ -228,9 +224,18 @@
     requestAnimationFrame(animate);
 
     var aTags = document.querySelectorAll('#topNavBar > nav > ul > li >a');
+
+    
+    for (let i = 0; i < aTags.length-4; i++) {
+      let part = document.querySelector(aTags[i].getAttribute('href'));
+      part.classList.add('offsetInit');
+    }
+
     aTags.forEach(aTag => aTag.onclick = function(e){
         e.preventDefault();
         var whichPart = document.querySelector(e.currentTarget.getAttribute('href'));
+        whichPart.classList.add('offsetInit');
+        whichPart.classList.add('offset');
         var targetY = whichPart.offsetTop - 80;
         var currentTargetY = window.scrollY;
         var t = Math.abs((targetY - currentTargetY)*3);
@@ -248,8 +253,47 @@
      
      })
 
+    /*slice scroll , highlight the <a> tags , animation*/
+    window.onscroll = function(x){
+        if (window.scrollY>0) {topNavBar.classList.add('active');
+      }else{
+        topNavBar.classList.remove('active');
+      }  //this part control nav bar when window scroll
 
-    
+        var currentPart = currentPart(aTags);
+        
+        if (currentPart!==undefined) {
+            var lis = topNavBar.querySelectorAll('li.highlight');
+            lis.forEach(li => li.classList.remove("highlight"));
+
+            var liCurrent = topNavBar.querySelector('a[href="#'+currentPart+'"]').parentNode; 
+            liCurrent.classList.add("highlight");
+
+            var offsets = document.querySelectorAll('.offsetInit');
+            offsets.forEach(offset => offset.classList.add("offset"));
+            var part = document.getElementById(currentPart);
+            part.classList.remove('offset');  
+
+        }
+
+
+
+
+      function currentPart(aTags){  
+        var currentPart;
+        for (let i = 0; i < aTags.length-4; i++) {
+          var nextPart = document.querySelector(aTags[i].getAttribute('href'));
+          if (window.scrollY>nextPart.offsetTop-90) {
+            currentPart=nextPart.id
+          }
+        }
+        return currentPart;
+       }
+     }
+
+
+
+
    </script>
 </body>
 </html>
