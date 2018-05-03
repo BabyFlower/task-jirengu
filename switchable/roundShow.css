@@ -1,0 +1,24 @@
+body{
+    background: bisque;
+}
+
+.window{
+    width: 480px;
+    height: 639px;
+    overflow: hidden;
+    margin: 0px auto;
+}
+.images{
+    display: flex;
+    justify-content: flex-start;
+    transition: all 0.3s;
+}
+
+.buttons{
+    text-align: center;
+}
+
+
+.active{
+    background-color: aqua;
+}
