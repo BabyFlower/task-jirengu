@@ -1,44 +1,53 @@
-// var $buttons = $('.buttons > button');
-// var size = $buttons.length;
-// for (let i = 0; i < size; i++) {
-//     $($buttons[i]).on('click',function(e){
-//         var index = $(e.currentTarget).index();
-//         var p = index * (-480);
-//         $('.images').css({
-//             transform:'translateX(' + p + 'px)'
-//         })
-//         activeButton($buttons.eq(index))
-//     })    
-// }
 
 
+init();
+var n = 1 ;
+var timerId=setTimer();
 
-// $buttons.eq(0).trigger('click');
+function setTimer(){
+    return setInterval(()=>{
+        slideOut(n);
+        n = standNum(n + 1);
+        slideIn(n);
+      },3000);
+}
 
-$('.images>img:nth-child(3)').addClass('wait').one('animationend',function(e){
-    $(e.currentTarget).css({style:'z-index:1'})
-})
-$('.images>img:nth-child(1)').addClass('current').css({style:'z-index:2'});
+function standNum(number){
+    let size = $('.images > img').length;
+    if(number > size ){number = 1;}
+    return number;
+}
 
-var id= setInterval(()=>{
-    $('.images>img:nth-child(2)').addClass('current').css({style:'z-index:3'});//会出现第三张图跳上来的bug
-    $('.images>img:nth-child(1)').removeClass('current').addClass('wait');
-    
-    window.clearInterval(id);
-},3000)
+function slideIn(num){
+    $(`.images>img:nth-child(${num})`).removeClass('wait').addClass('current')
+}
 
+function slideOut(num){
+    $(`.images>img:nth-child(${num})`).removeClass('current').addClass('leave')
+    .one('transitionend',(e)=>{console.log(e);$(e.currentTarget).removeClass('leave').addClass('wait')});
+}
 
-var id1=setInterval(()=>{
-    $('.images>img:nth-child(3)').removeClass('wait').addClass('current');
-    $('.images>img:nth-child(2)').removeClass('current').addClass('wait');
-   
-    window.clearInterval(id1);
-},6000)
+function init(){
+    $('.images>img:nth-child(1)').addClass('current');
+    let size = $('.images > img').length;
+    for(let i = 2;i <= size;i++){
+        $(`.images > img:nth-child(${i})`).addClass('wait');
+    }
+    let $buttons = $('.buttons > button');
+    for (let i = 0; i < size; i++) {
+      $($buttons[i]).on('click',function(e){
+         var index = $(e.currentTarget).index();
+         window.clearInterval(timerId);
+         n = index + 1;
+         $(`.images>img:nth-child(${n})`).addClass('current')
+         .siblings('.current').removeClass('current').addClass('wait');
+         timerId = setTimer();
+         activeButton($buttons.eq(index))
+     })    
+    }
+}
 
-
-var id2=setInterval(()=>{
-    $('.images>img:nth-child(1)').removeClass('wait').addClass('current');
-    $('.images>img:nth-child(3)').removeClass('current').addClass('wait');
-   
-    window.clearInterval(id2);
-},9000)
+function activeButton($node){
+    $node.addClass('active')
+    .siblings('.active').removeClass('active')
+}
