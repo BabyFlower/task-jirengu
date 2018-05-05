@@ -6,9 +6,11 @@ var timerId=setTimer();
 
 function setTimer(){
     return setInterval(()=>{
+        let $buttons = $('.buttons > button');
         slideOut(n);
         n = standNum(n + 1);
         slideIn(n);
+        activeButton($buttons.eq(n-1));
       },3000);
 }
 
@@ -34,6 +36,7 @@ function init(){
         $(`.images > img:nth-child(${i})`).addClass('wait');
     }
     let $buttons = $('.buttons > button');
+    activeButton($buttons.eq(0));
     for (let i = 0; i < size; i++) {
       $($buttons[i]).on('click',function(e){
          var index = $(e.currentTarget).index();
