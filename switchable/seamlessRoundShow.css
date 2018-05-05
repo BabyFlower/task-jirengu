@@ -1,0 +1,49 @@
+body{
+    background: bisque;
+}
+
+.window{
+    width: 480px;
+    height: 639px;
+    overflow: hidden;
+    margin: 0px auto;
+}
+.images{
+    position: relative;
+    top:0;
+    left:0;
+}
+
+.images > img{
+    position: absolute;
+}
+
+
+.buttons{
+    text-align: center;
+}
+
+
+.active{
+    background-color: aqua;
+}
+
+.wait{
+    
+    animation: slideOut 3s linear;
+    
+}
+
+.current{
+   
+    animation: slideIn 3s linear;
+}
+@keyframes slideIn{
+    from{transform: translateX(-100%)}
+    to{transform: translateX(0)}
+}
+
+@keyframes slideOut{
+    from{transform: translateX(0)}
+    to{transform: translateX(100%)}
+}
