@@ -41,8 +41,9 @@ function init(){
       $($buttons[i]).on('click',function(e){
          var index = $(e.currentTarget).index();
          window.clearInterval(timerId);
+         slideOut(n);
          n = index + 1;
-         $(`.images>img:nth-child(${n})`).addClass('current')
+         $(`.images>img:nth-child(${n})`).addClass('current').removeClass('wait')
          .siblings('.current').removeClass('current').addClass('wait');
          timerId = setTimer();
          activeButton($buttons.eq(index))
