@@ -1,7 +1,8 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
     <title>木叶子的个人简历</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.5/css/swiper.min.css">
     <link rel="stylesheet" href="./a.css">
     <script type="text/javascript" src="//at.alicdn.com/t/font_609752_i7zf51q6qi0vbo6r.js"></script>
     <style type="text/css">
@@ -10,6 +11,10 @@
        vertical-align: -0.15em;
        fill: currentColor;
        overflow: hidden;
+    }
+    .swiper-container {
+    width: 1000px;
+    height: 430px;
     }
 </style>
 </head>
@@ -41,10 +46,6 @@
        </nav>
     </div>
    </div> 
-
-   <script type="text/javascript">
-         
-   </script> 
 
    <div class="banner">
      <div class="mask"></div>
@@ -174,46 +175,32 @@
         portfolioBar.className = 'bar state-3'
       }
        </script>
-    <div class="works" style="height: 597px;">
-          <div class="big" style="top: 0; left: 0;">
-            <img src="./img/1.jpg" alt="作品1">
-          </div>
-          <div class="small" style="top: 0; left: 645px;">
-            <img src="./img/2.jpg" alt="作品2">
-          </div>
-          <div class="small" style="top: 312px; left: 645px;">
-            <img src="./img/3.jpg" alt="作品3">
-          </div>
-   </div>
+   <!-- Slider main container -->
+  <div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide"><img src="/img/portfolio_canvas.png" alt="canvas" width="800" height="400"></div>
+        <div class="swiper-slide"><img src="/img/portfolio_nav.png" alt="nav" width="800" height="400"></div>
+        <div class="swiper-slide"><img src="/img/portfolio_yinyan.png" alt="yinyan" width="800" height="400"></div>
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+  </div>
    </section>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.1.1/Tween.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.5/js/swiper.min.js"></script>
+   <script src="/js/swiperInit.js"></script>
+   <script src="/js/topBar.js"></script>
    <script type="text/javascript">
      setTimeout(function(){
         loadMask.classList.remove('active');
      },1000);  //when the web have already loaded, remove the loadMask
-
-
-     /*a frag hover show the bottom line*/
-     var lis = Array.from(topNavBar.querySelectorAll('li'));
-     lis.forEach(li => li.onmouseenter = function(event){
-          var target = event.target;
-          target.classList.remove('leave');
-          target.classList.add('active');
-     })
-     lis.forEach(li => li.onmouseleave = function(event){
-         var target = event.target;
-          target.classList.remove('active');
-          target.classList.add('leave');
-
-     })
-
-
-     /*show second menu*/
-     var secondMenus = Array.from(topNavBar.querySelectorAll('.secondMenu'));
-     secondMenus.forEach(secondMenu => secondMenu.addEventListener('animationend',function(e){
-      if (e.animationName!=='menuLeave') {return;}
-      e.path[1].classList.remove('leave');
-     })) //when display is block, the animation can be effort, so using js to let display be none when animation is end
 
      /*a tags jump*/
     function animate(time) {

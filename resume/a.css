@@ -334,6 +334,7 @@ section.skills > ol{
 section.skills > ol > li{
   float: left;
   width: 48%;
+  overflow: hidden;
 }
 section.skills > ol > li:nth-child(even){
   float: right;
@@ -388,6 +389,7 @@ section.portfolio > nav > ol > li {
 }
 
 
+
 section.portfolio > nav > ol > li:first-child {
   margin-left: 0;
 
@@ -427,3 +429,11 @@ section.portfolio .works > .big,
 section.portfolio .works > .small {
   position: absolute;
 }
+
+.swiper-button-next , .swiper-button-prev{
+  width: 44px;
+  border: 15px solid white;
+  border-radius: 50%;
+  background-color: white;
+}
+
