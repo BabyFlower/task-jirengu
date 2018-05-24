@@ -197,90 +197,12 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.5/js/swiper.min.js"></script>
    <script src="/js/swiperInit.js"></script>
    <script src="/js/topBar.js"></script>
+   <script src="/js/tagsJump.js"></script>
+   <script src="/js/tagsHighlight.js"></script>
    <script type="text/javascript">
      setTimeout(function(){
         loadMask.classList.remove('active');
      },1000);  //when the web have already loaded, remove the loadMask
-
-     /*a tags jump*/
-    function animate(time) {
-      requestAnimationFrame(animate);
-      TWEEN.update(time);
-    }
-
-    requestAnimationFrame(animate);
-
-    var aTags = document.querySelectorAll('#topNavBar > nav > ul > li >a');
-
-    
-    for (let i = 0; i < aTags.length-4; i++) {
-      let part = document.querySelector(aTags[i].getAttribute('href'));
-      part.classList.add('offsetInit');
-    }
-
-    aTags.forEach(aTag => aTag.onclick = function(e){
-        e.preventDefault();
-        var whichPart = document.querySelector(e.currentTarget.getAttribute('href'));
-        whichPart.classList.add('offsetInit');
-        whichPart.classList.add('offset');
-        var targetY = whichPart.offsetTop - 80;
-        var currentTargetY = window.scrollY;
-        var t = Math.abs((targetY - currentTargetY)*3);
-        if(t>500){ t = 500 }
-        var coords = {y : currentTargetY};
-
-         var tween = new TWEEN.Tween(coords) // 起始位置
-         .to({ y: targetY}, t) // 结束位置 和 时间
-         .easing(TWEEN.Easing.Cubic.InOut) // 缓动类型
-         .onUpdate(function() {
-         // coords.y 已经变了
-         window.scrollTo(0,coords.y) // 如何更新界面
-        })
-        .start(); // 开始缓动
-     
-     })
-
-    /*slice scroll , highlight the <a> tags , animation*/
-    window.onscroll = function(x){
-        if (window.scrollY>0) {topNavBar.classList.add('active');
-      }else{
-        topNavBar.classList.remove('active');
-      }  //this part control nav bar when window scroll
-
-        var currentPart = currentPart(aTags);
-        
-        if (currentPart!==undefined) {
-            var lis = topNavBar.querySelectorAll('li.highlight');
-            lis.forEach(li => li.classList.remove("highlight"));
-
-            var liCurrent = topNavBar.querySelector('a[href="#'+currentPart+'"]').parentNode; 
-            liCurrent.classList.add("highlight");
-
-            var offsets = document.querySelectorAll('.offsetInit');
-            offsets.forEach(offset => offset.classList.add("offset"));
-            var part = document.getElementById(currentPart);
-            part.classList.remove('offset');  
-
-        }
-
-
-
-
-      function currentPart(aTags){  
-        var currentPart;
-        for (let i = 0; i < aTags.length-4; i++) {
-          var nextPart = document.querySelector(aTags[i].getAttribute('href'));
-          if (window.scrollY>nextPart.offsetTop-90) {
-            currentPart=nextPart.id
-          }
-        }
-        return currentPart;
-       }
-     }
-
-
-
-
    </script>
 </body>
 </html>
