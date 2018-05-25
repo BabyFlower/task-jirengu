@@ -326,7 +326,7 @@ h1,h2,h3,h4,h5,h6{
   font-weight: normal;
 }
 
-section.skills > ol,
+section.skills > ol
 {
   background: white;
   padding: 42px 50px 10px;
