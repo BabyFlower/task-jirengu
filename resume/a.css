@@ -297,7 +297,8 @@ main > .introduce{
 
 
 section.skills,
-section.portfolio{
+section.portfolio,
+section.messages{
   max-width: 940px;
   margin-top: 60px;
   margin-left: auto;
@@ -325,7 +326,8 @@ h1,h2,h3,h4,h5,h6{
   font-weight: normal;
 }
 
-section.skills > ol{
+section.skills > ol,
+{
   background: white;
   padding: 42px 50px 10px;
   margin-top: 30px;
@@ -433,8 +435,19 @@ section.portfolio .works > .small {
 
 .swiper-button-next , .swiper-button-prev{
   width: 44px;
-  border: 15px solid white;
+  border: 5px solid white;
   border-radius: 50%;
   background-color: white;
 }
 
+section.messages > ol
+{
+  background: white;
+  padding: 10px 50px 10px;
+  margin-top: 30px;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+}
+section.messages > ol > li{
+  padding: 16px;
+  border-bottom: 1px solid #DDD;
+}

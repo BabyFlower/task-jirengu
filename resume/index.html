@@ -13,8 +13,9 @@
        overflow: hidden;
     }
     .swiper-container {
-    width: 1000px;
+    width: 960px;
     height: 430px;
+    margin: 0;
     }
 </style>
 </head>
@@ -195,7 +196,15 @@
    </section>
    <section id="messages" class="messages">
      <h2>留言</h2>
-     
+     <ol class="clearfix">
+     </ol> 
+     <form id="postMessageForm" style="width:700px;margin:50px auto">
+        <label for="">姓名</label>    
+        <input type="text" name="name">
+        <label for="">内容</label>
+        <input type="text" name="content">
+        <input type="submit" value="提交">
+     </form>
    </section>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.1.1/Tween.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.5/js/swiper.min.js"></script>
@@ -203,7 +212,7 @@
    <script src="//cdn1.lncld.net/static/js/3.6.8/av-min.js"></script>
    <!-- 实时消息服务 -->
    <script src="//unpkg.com/leancloud-realtime@^4.0.0-beta"></script>
-   <!-- <script src="/js/leanCloud.js"></script> -->
+   <script src="/js/leanCloud.js"></script>
    <script src="/js/swiperInit.js"></script>
    <script src="/js/topBar.js"></script>
    <script src="/js/tagsJump.js"></script>
