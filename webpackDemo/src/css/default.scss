@@ -1,0 +1,8 @@
+.topBar{
+    color:red;
+    > .nav{margin: auto;}
+    > p{
+        padding:1px;
+        > .market{display: inline;}
+    }
+}
