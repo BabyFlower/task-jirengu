@@ -1,5 +1,5 @@
 !function (){
-  var view = document.getElementsByClassName('swiper-container');
+  var view = View('.swiper-container');
   var controller = {
       view: null,
       swiper: null,

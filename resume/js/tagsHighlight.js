@@ -7,6 +7,7 @@
 
         var currentPart = currentPart(aTags);
         
+  
         if (currentPart!==undefined) {
             var lis = topNavBar.querySelectorAll('li.highlight');
             lis.forEach(li => li.classList.remove("highlight"));
@@ -25,7 +26,7 @@
         var currentPart;
         for (let i = 0; i < aTags.length-4; i++) {
           var nextPart = document.querySelector(aTags[i].getAttribute('href'));
-          if (window.scrollY>nextPart.offsetTop-90) {
+          if (window.scrollY>nextPart.offsetTop-150) {
             currentPart=nextPart.id
           }
         }
