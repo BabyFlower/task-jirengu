@@ -26,7 +26,7 @@
    <div class="topNavBar">
     <div id="topNavBar" class="topNavBarInner clearfix">
        <a href="javascript:;" alt="logo" class="logo" style="float:left;">
-           <span class="rs">RS</span><span class="card">card</span>
+           <span class="rs">Zhang</span><span class="card">card</span>
        </a>
        <nav style="float:right;">
            <ul class="clearfix">
@@ -39,9 +39,7 @@
                       <li class="leave"><a href="#">work3</a></li>
                   </ul>
                </li>
-               <li><a href="#topNavBar">博客</a></li>
-               <li><a href="#topNavBar">日历</a></li>
-               <li><a href="#topNavBar">联系方式</a></li>
+               <li><a href="#messages">留言</a></li>
                <li><a href="#topNavBar">其他</a></li>
            </ul>  
        </nav>
@@ -55,7 +53,7 @@
        <div class="userCard">
            <div class="pictureAndText clearfix">
                <div class="picture">
-                   <img src="./img/head-portrait.jpeg" width=299 height=347 alt="头像">
+                   <img src="./img/head-myself.jpg" width=299 height=347 alt="头像">
                </div>
                <div class="text">
                      <span class="welcome">Hello<span class="triangle"></span></span>
@@ -64,9 +62,9 @@
                      <hr>
                      <dl>
                          <dt>年龄</dt>
-                         <dd>18</dd>
-                         <dt>所在城市</dt>
-                         <dd>北京</dd>
+                         <dd>25</dd>
+                         <dt>学校</dt>
+                         <dd>江南大学</dd>
                          <dt>邮箱</dt>
                          <dd>zhang237584904@gmail.com</dd>
                          <dt>手机</dt>
@@ -97,7 +95,8 @@
        </p>
        <p class="introduce">
            张远敬，江南大学硕士研究生毕业。<br>
-           技能：前端开发，Node.js开发，vue和React框架
+           本科毕业于江南大学，保研本校研究生。研究生阶段参与实验室项目，<br>
+           涉及相关技术有java，springboot后端框架，原生js，MySQL数据库等。
        </p>
    </main>
    <section id="skills" class="skills">
@@ -108,15 +107,15 @@
               HTML 5 &amp; CSS 3
             </h3>
             <div class="progressBar">
-              <div class="progress" style="width: 10%;"></div>
+              <div class="progress" style="width: 90%;"></div>
             </div>
           </li>
           <li>
             <h3>
-              JavaScript
+              原生JavaScript
             </h3>
             <div class="progressBar">
-              <div class="progress" style="width: 20%"></div>
+              <div class="progress" style="width: 80%"></div>
             </div>
           </li>
           <li>
@@ -124,7 +123,7 @@
               jQuery
             </h3>
             <div class="progressBar">
-              <div class="progress" style="width: 30%"></div>
+              <div class="progress" style="width: 85%"></div>
             </div>
           </li>
           <li>
@@ -132,7 +131,7 @@
               Vue.js
             </h3>
             <div class="progressBar">
-              <div class="progress" style="width: 40%"></div>
+              <div class="progress" style="width: 75%"></div>
             </div>
           </li>
           <li>
@@ -140,22 +139,23 @@
               React.js
             </h3>
             <div class="progressBar">
-              <div class="progress"  style="width: 50%"></div>
+              <div class="progress"  style="width: 70%"></div>
             </div>
           </li>
           <li>
             <h3>
-              Node.js
+              前端框架(MVC.MVVM)
             </h3>
             <div class="progressBar">
               <div class="progress"  style="width: 60%"></div>
             </div>
           </li>
        </ol>
+       
    </section>
    <section id="portfolio" class="portfolio">
        <h2>作品集</h2>
-       <nav>
+       <!-- <nav>
            <ol class="clearfix">
                <li id="portfolio1">所有</li>
                <li id="portfolio2">框架</li>
@@ -167,24 +167,33 @@
        </nav>
        <script>
       portfolio1.onclick= function(){
-        portfolioBar.className = 'bar state-1'
+        portfolioBar.className = 'bar state-1';
       }
       portfolio2.onclick= function(){
-        portfolioBar.className = 'bar state-2'
+        portfolioBar.className = 'bar state-2';
       }
       portfolio3.onclick= function(){
         portfolioBar.className = 'bar state-3'
       }
-       </script>
+       </script> -->
    <!-- Slider main container -->
-  <div class="swiper-container">
+  <div class="swiper-container" style="margin-top:50px">
     <!-- Additional required wrapper -->
-    <div class="swiper-wrapper">
+    <div id="slices-all" class="swiper-wrapper">
         <!-- Slides -->
         <div class="swiper-slide"><img src="./img/portfolio_canvas.png" alt="canvas" width="800" height="400"></div>
         <div class="swiper-slide"><img src="./img/portfolio_nav.png" alt="nav" width="800" height="400"></div>
         <div class="swiper-slide"><img src="./img/portfolio_yinyan.png" alt="yinyan" width="800" height="400"></div>
+        <div class="swiper-slide"><img src="./img/portfolio_pikachu.png" alt="yinyan" width="800" height="400"></div>
     </div>
+
+    <div id="slices-js-css" >
+      <!-- Slides -->
+      <div class="swiper-slide"><img src="./img/portfolio_canvas.png" alt="canvas" width="800" height="400"></div>
+      <div class="swiper-slide"><img src="./img/portfolio_nav.png" alt="nav" width="800" height="400"></div>
+      <div class="swiper-slide"><img src="./img/portfolio_yinyan.png" alt="yinyan" width="800" height="400"></div>
+      <!-- <div class="swiper-slide"><img src="./img/portfolio_pikachu.png" alt="yinyan" width="800" height="400"></div> -->
+  </div>
     <!-- If we need pagination -->
     <div class="swiper-pagination"></div>
 
